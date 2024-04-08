@@ -5,7 +5,9 @@ import { generateSlug } from "../utils/generate-slug.js"
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 
 export async function createBook(app: FastifyInstance){
-    app.withTypeProvider<ZodTypeProvider>().post('/books', {
+    app
+    .withTypeProvider<ZodTypeProvider>()
+    .post('/books', {
         schema: {
             body: z.object({
                 title: z.string().min(4),

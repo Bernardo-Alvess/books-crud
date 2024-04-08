@@ -1,15 +1,9 @@
 import fastify from "fastify"
-import { PrismaClient } from "@prisma/client"
-import { z } from "zod"
-import { ZodTypeProvider, validatorCompiler, serializerCompiler} from "fastify-type-provider-zod"
-import { generateSlug } from "./utils/generate-slug.js"
+import { validatorCompiler, serializerCompiler} from "fastify-type-provider-zod"
 import { fastifyCors } from "@fastify/cors"
 import { createBook } from "./routes/create-book.js"
-import { getBooks } from "./routes/get-books.js"
-
-const prisma = new PrismaClient({
-    log: ['query']
-})
+import { getBooks } from "./routes/get-all-books.js"
+import { getBookById } from "./routes/get-book-by-id.js"
 
 const app = fastify()
 
@@ -20,6 +14,7 @@ app.setSerializerCompiler(serializerCompiler)
 
 app.register(createBook)
 app.register(getBooks)
+app.register(getBookById)
 
 app.listen({port: 3333}).then(() => {
     console.log('HTPP Server Running')

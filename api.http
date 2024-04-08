@@ -7,4 +7,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3333/books
+GET http://localhost:3333/books?book=25dfa450-0f06-4042-8d64-69a43e73ccce
+
+###
+GET http://localhost:3333/books/25dfa450-0f06-4042-8d64-69a43e73ccce

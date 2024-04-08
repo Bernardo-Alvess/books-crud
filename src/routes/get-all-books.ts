@@ -2,13 +2,14 @@ import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { prisma } from "../lib/prisma.js"
-import { title } from "process";
 
 export async function getBooks(app: FastifyInstance) {
-    app.withTypeProvider<ZodTypeProvider>().get('/books', {
+    app
+    .withTypeProvider<ZodTypeProvider>()
+    .get('/books', {
         schema: {
             querystring: z.object({
-                index: z.string().nullish().default('0').transform(Number)
+                index: z.string().nullish().default('0').transform(Number),
             })
         }
     } , async (req, res) => {
