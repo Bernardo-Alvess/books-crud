@@ -1,0 +1,10 @@
+POST http://localhost:3333/books
+Content-Type: application/json
+
+{
+    "title": "Estrelas bonitas",
+    "details": "as estrelas sao lindas"
+}
+
+###
+GET http://localhost:3333/books
