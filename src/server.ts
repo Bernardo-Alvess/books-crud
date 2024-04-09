@@ -4,6 +4,7 @@ import { fastifyCors } from "@fastify/cors"
 import { createBook } from "./routes/create-book.js"
 import { getBooks } from "./routes/get-all-books.js"
 import { getBookById } from "./routes/get-book-by-id.js"
+import { updateBook } from "./routes/update-book.js"
 
 const app = fastify()
 
@@ -15,6 +16,7 @@ app.setSerializerCompiler(serializerCompiler)
 app.register(createBook)
 app.register(getBooks)
 app.register(getBookById)
+app.register(updateBook)
 
 app.listen({port: 3333}).then(() => {
     console.log('HTPP Server Running')

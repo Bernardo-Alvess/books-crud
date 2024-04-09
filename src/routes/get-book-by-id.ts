@@ -2,7 +2,6 @@ import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.js";
-import { isNull } from "util";
 
 export async function getBookById(app: FastifyInstance) {
     app
