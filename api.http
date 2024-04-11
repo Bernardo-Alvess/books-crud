@@ -21,3 +21,7 @@ Content-Type: application/json
     "title": "Percy Jackson: the lightning thief",
     "details": ""
 }
+
+###
+
+DELETE http://localhost:3333/books/a7eb9b9d-fdfa-4db5-b366-bce6ae65f32d
